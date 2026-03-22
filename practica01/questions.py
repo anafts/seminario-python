@@ -1,32 +1,39 @@
 import random
 
-# Los separé por nivel de dificultad.
 words = {
-    "facil":["python",
-             "programa", 
-             "variable",
-             "entero"
+    "paises": [
+        "argentina",
+        "portugal",
+        "brasil",
+        "china"
     ],
-    "dificil":["bucle",
-               "cadena",
-               "funcion",
-               "lista",
+    "animales": [
+        "caballo",
+        "ballena",
+        "tortuga",
+        "perro"
+    ],
+    "colores": [
+        "amarillo",
+        "celeste",
+        "violeta",
+        "blanco"
     ]
 }
 
 guessed = []
 attempts = 6
+puntaje = 0
 
 print("¡Bienvenido al Ahorcado!")
 print()
 
-puntaje = 0
+print("Elegí una categoría: Paises, Animales o Colores?")
+category = input().lower()
 
-print("Elegí un nivel de dificultad: fácil o difícil?")
-difficulty = input().lower()
-
-if difficulty in words:
-    word = random.choice(words[difficulty])
+if category in words:
+    seleccion = random.sample(words[category], 3)
+    word = seleccion[0]
 
     while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
